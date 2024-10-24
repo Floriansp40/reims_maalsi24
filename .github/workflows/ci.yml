@@ -16,6 +16,6 @@ jobs:
             - name: Node Comment
               uses: actions/setup-node@v3
               with:
-                node-version: 18.x
+                node-version: 20.x
             - name: Run Blague
               run: echo Blague
