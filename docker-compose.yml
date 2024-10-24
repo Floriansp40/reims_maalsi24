@@ -1,0 +1,21 @@
+services:
+  reims_bdd:
+    container_name: reims_mariadb
+    image: mariadb:latest
+    restart: always
+    ports:
+      - 53000:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: TOOR
+      MARIADB_DATABASE: maalsi24
+      MARIADB_USER: user
+      MARIADB_PASSWORD: resu
+
+  reims_adminer:
+    container_name: reims_adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

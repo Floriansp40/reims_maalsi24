@@ -1,0 +1,29 @@
+{
+  "name": "maalsi24_reims",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config server.js",
+    "start": "node -r dotenv/config server.js",
+    "test": "jest --setupFiles dotenv/config --testPathIgnorePatterns=init_bdd.test.js",
+    "test:file": "func() { jest ${1}.test.js --setupFiles dotenv/config; }; func",
+    "test:cov": "jest --setupFiles dotenv/config --coverage --testPathIgnorePatterns=init_bdd.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.3",
+    "sequelize": "^6.37.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
