@@ -72,19 +72,6 @@ jobs:
             - name: Run User Router test
               run: npm run test:file user_route
 
-    coverage:
-        needs: [routage]
-        runs-on: ubuntu-latest
-
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
-            - name: Node Comment
-              uses: actions/setup-node@v3
-              with:
-                node-version: 20.x
-            - name: Install Depencies
-              run: npm i
             - name: Run Coverage
               run: npm run test:cov
             - name: Upload Coverage Artifacts
@@ -93,8 +80,8 @@ jobs:
                 name: coverage-percent
                 path: ./coverage
                 retention-days: 3
-
+            
     canary:
-        needs: [coverage]
+        needs: [routage]
         if: ${{ github.event_name =='push' && github.ref_name == 'main' }}
         uses: ./.github/workflows/canary.yml
