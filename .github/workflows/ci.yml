@@ -72,6 +72,15 @@ jobs:
             - name: Run User Router test
               run: npm run test:file user_route
 
+            - name: Run Coverage
+              run: npm run test:cov
+            - name: Upload Coverage Artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                name: coverage-percent
+                path: ./coverage
+                retention-days: 3
+            
     canary:
         needs: [routage]
         if: ${{ github.event_name =='push' && github.ref_name == 'main' }}
