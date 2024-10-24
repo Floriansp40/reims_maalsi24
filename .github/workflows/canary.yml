@@ -5,7 +5,26 @@ on:
 
 jobs:
     deploy:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
+
+        env:
+            SERVER_PORT: 23000
+            BDD_HOST: 127.0.0.1
+            BDD_PORT: 53000
+            BDD_NAME: maalsi24
+            BDD_USER: user
+            BDD_PASS: resu
+
         steps:
-            - name: Comment
-              run: echo comment
+            - name: Checkout
+              run: actions/checkout@v3
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                node-version: 20.x
+
+            - name: Install Dependencies
+              run: npm i --omit=dev
+
+            - name: Start API
+              run: npm run start
