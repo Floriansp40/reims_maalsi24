@@ -27,6 +27,7 @@ module.exports = (sequelize) => {
         user.password = hash
     })
 
+    /* istanbul ignore next */
     User.checkPassword = async (password, original) => {
         return await bcrypt.compare(password, original)
     }

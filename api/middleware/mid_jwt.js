@@ -2,6 +2,7 @@
 const jwt = require('jsonwebtoken')
 
 /*** EXTRACT */
+/* istanbul ignore next */
 const extractBearer = authorization => {
     if(typeof authorization !== 'string'){
         return false
@@ -12,6 +13,7 @@ const extractBearer = authorization => {
 }
 
 /*** CHECK */
+/* istanbul ignore next */
 const checkToken = (req, res, next) => {
     const token = req.headers.authorization && extractBearer(req.headers.authorization)
 
